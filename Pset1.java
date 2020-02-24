@@ -18,8 +18,8 @@ public class Pset1 {
     static int userChoice;
 //    static int cardOne;
 //    static int cardTwo;
-    static int cardInDeck=40;
-    static int score = 0;
+    static int cardInDeck=40; //Initial number of cards
+    static int score = 0;//Initial score
     static Scanner input = new Scanner(System.in);
  
     public static void main(String[] args) throws InterruptedException {
@@ -70,13 +70,10 @@ public class Pset1 {
             displayGrid();
            
             System.out.println("What is the 1st card you want to remove?");
-      String cardOne = input.nextLine();
-           
-         
+      String cardOne = input.nextLine();    
             System.out.println("What is the 2nd card you want to remove?");
       String cardTwo = input.nextLine();
-           
-            if ((getCardValue(cardOne) + getCardValue(cardTwo) )== 11) {
+                       if ((getCardValue(cardOne) + getCardValue(cardTwo) )== 11) {
                 System.out.println("Great job!");
                 // addition of 2 points to the users score
                 score = score + 2;
@@ -101,7 +98,8 @@ public class Pset1 {
             } else {
                 // in case the user accidently inputs the wrong number or can't do math in that
                 // instant
-                System.out.println("Please select two cards that add to 11");
+                System.err.println("Please select the correct cards or check your spelling");
+                System.out.println();
             }  
         }
     }
