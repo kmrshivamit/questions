@@ -48,11 +48,19 @@ public class Pset1 {
         deckValue[randNum] = 0;
         cardInDeck--;
     }
- 
+ static int Flag=0;
     private static Integer getCardValue(String card) {
+    	try {
         return Integer.parseInt(card.replaceAll("\\D", ""));
+    	}
+    	catch(Exception e)
+    	{Flag=1;
+    		return 0;
+    	
+    	}
+    	
       }
- 
+    
   private static int findIndex(String str) {
 	  int i;
 	  for( i=0;i<9;i++)
@@ -66,6 +74,7 @@ public class Pset1 {
     private static void game() {
     	fillBoard();
         while (game) {
+        	Flag=0;
             
             displayGrid();
            
@@ -73,7 +82,7 @@ public class Pset1 {
       String cardOne = input.nextLine();    
             System.out.println("What is the 2nd card you want to remove?");
       String cardTwo = input.nextLine();
-                       if ((getCardValue(cardOne) + getCardValue(cardTwo) )== 11) {
+                       if (((getCardValue(cardOne) + getCardValue(cardTwo) )== 11)&&(Flag==0)) {
                 System.out.println("Great job!");
                 // addition of 2 points to the users score
                 score = score + 2;
